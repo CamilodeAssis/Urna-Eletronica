@@ -35,6 +35,10 @@ body {
 .teclado {
 
     background-color: #414141;
+    border-bottom: 2px solid rgb(99, 99, 99);
+    border-right: 2px solid rgb(99, 99, 99);
+    border-left: 2px solid rgb(0, 0, 0);
+    border-top: 2px solid rgb(0, 0, 0);
 }
 
 .teclado-linha {
@@ -166,4 +170,10 @@ body {
     font-size: 14px;
     border-top: 1px solid black;
     padding-left: 10px;
+}
+
+.avisoNuloBranco{
+    font-weight: bold;
+    font-size: 40px;
+    margin-top: 10px;
 }
