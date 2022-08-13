@@ -62,12 +62,20 @@ body {
     border-right: 2px solid rgb(0, 0, 0);
 }
 
+.teclado-botao:hover{
+    background-color: rgb(0, 0, 0);
+}
+
 .branco {
     background-color: white;
     color: black;
     font-size: 15px;
     border-bottom: 2px solid rgb(99, 99, 99);
     border-right: 2px solid rgb(99, 99, 99);
+}
+
+.branco:hover{
+    background-color: rgb(158, 158, 158);
 }
 
 .corrige {
@@ -78,6 +86,10 @@ body {
     border-right: 2px solid #462811;
 }
 
+.corrige:hover{
+    background-color: #a06b42;
+}
+
 .confirma {
     background-color: #48c079;
     color: black;
@@ -86,6 +98,10 @@ body {
     height: 50px;
     border-bottom: 2px solid #133622;
     border-right: 2px solid #133622;
+}
+
+.confirma:hover{
+    background-color: #387a54;
 }
 
 .d-1 {
@@ -176,4 +192,42 @@ body {
     font-weight: bold;
     font-size: 40px;
     margin-top: 10px;
+}
+
+.fim{
+    flex: 1;
+    display: flex;
+    font-size: 70px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+  
+}
+
+
+.lista{
+    margin-top: 50px;
+    display: flex;
+    margin-left: 50px;
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.lista h4{
+    margin-left:0px;
+    margin-bottom: 5px;
+}
+
+.lista-container{
+    display: block;
+    align-items: flex-start;
+}
+
+.lista ul{
+    padding: 0;
+    list-style: none;
+    
 }

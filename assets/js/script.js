@@ -11,13 +11,17 @@ let numeros = c('.d1-3');
 let etapaAtual = 0;
 let numero = '';
 let branco = false;
+let votos = [];
+
+let endSound = new Audio();
+endSound.src = 'assets/sons/confirma-urna.mp3'; 
 
 function comecarEtapa() {
     let etapa = etapas[etapaAtual];
 
     let numeroHTML = "";
-     numero = '';
-     branco = false;
+    numero = '';
+    branco = false;
 
     for (let i = 0; i < etapa.numeros; i++) {
         if (i === 0) {
@@ -52,7 +56,7 @@ function atualizaInterface() {
         descricao.innerHTML = `Nome: ${candidato.nome}<br/>Partido: ${candidato.partido}`;
 
         let fotosHtml = '';
-        for (let i in candidato.fotos){
+        for (let i in candidato.fotos) {
             fotosHtml += `<div class="d1-img"><img src="/assets/images/${candidato.fotos[i].url}" alt="">${candidato.fotos[i].legenda}</div>`;
         }
         lateral.innerHTML = fotosHtml;
@@ -87,7 +91,7 @@ botao.forEach(b => {
 });
 
 let botaoBranco = c('.branco').addEventListener('click', () => {
-    if (numero === ''){
+    if (numero === '') {
         branco = true;
         seuVotoPara.style.display = 'block';
         aviso.style.display = 'block';
@@ -101,7 +105,41 @@ let botaoCorrige = c('.corrige').addEventListener('click', () => {
     comecarEtapa();
 });
 let botaoConfirma = c('.confirma').addEventListener('click', () => {
-    alert(`Você clicou CONFIRMA`);
+   
+    let etapa = etapas[etapaAtual];
+    let votoConfirmado = false;
+
+
+    if (branco === true) {
+        votoConfirmado = true;
+        votos.push({
+            etapa: etapas[etapaAtual].titulo,
+            voto: 'branco'
+        });
+
+
+    } else if (numero.length === etapa.numeros) {
+        votoConfirmado = true;
+        votos.push({
+            etapa: etapas[etapaAtual].titulo,
+            voto: numero
+        });
+
+
+    }
+    if (votoConfirmado) {
+        endSound.play();
+        etapaAtual++;
+        if (etapas[etapaAtual] !== undefined) {
+            comecarEtapa();
+        } else {
+            c('.tela').innerHTML = '<div class="fim foco">FIM<div/>'
+            console.log(votos);
+        }
+    }
+
+
 });
 
 comecarEtapa();
+
